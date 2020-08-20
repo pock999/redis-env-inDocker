@@ -1,0 +1,18 @@
+const redis = require("redis");
+
+const port = 6379; // port
+const host = '127.0.0.1';
+const opt = {auth_pass: '<密碼>'};
+
+const client = redis.createClient(port, host, opt);
+
+client.on('ready', (res) => {
+  console.log('con ready');
+});
+
+client.on("error", function(error) {
+  console.error(error);
+});
+ 
+client.set("key", "value", redis.print);
+client.get("key", redis.print);

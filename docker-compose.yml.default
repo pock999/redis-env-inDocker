@@ -1,0 +1,8 @@
+redis:
+  image: redis
+  container_name: <container_name>
+  command: redis-server --requirepass <密碼>
+  ports:
+    - "6379:6379"
+  volumes:
+    - ./data:/data
